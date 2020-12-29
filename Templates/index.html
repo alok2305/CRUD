@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Home</title>
+{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<div>
+    <div class="bg-light p-5 rounded">
+        <div class="col-sm-8 mx-auto">
+            <h1>Welcome</h1>
+            <p>This is My Blogs where you can Create , Read , Update or Delete Your posts</p>
+            <p>Click on Go to posts for Reading Posts</p>
+            <a class="btn btn-primary" href='/posts' role="button">Go to Posts &raquo;</a>
+            </p>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<p>Do you want to <a href="/login">Login</a></p>
+{% endblock %}
