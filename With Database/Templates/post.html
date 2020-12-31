@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Posts</title>
+{% endblock %}
+
+{% block body %}
+<section class="py-5 text-center container">
+    <div class="row py-lg-2">
+        <div class="col-lg-8 col-md-8 mx-auto">
+            <h1 class="fw-light">Post example</h1>
+            <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator,
+                etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+            <p>
+            </p>
+        </div>
+    </div>
+</section>
+<br>
+<br>
+<h1>Create New Blog Post:</h1>
+<form action='/posts' method='POST'>
+    <div class="mb-3">
+        <label class="form-label">Author</label>
+        <input type="text" class="form-control" id="author" name="author">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name=title>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Content</label>
+        <input type="text" class="form-control" id="content" name="content">
+    </div>
+    <button type="submit" value="Post" class="btn btn-primary">ADD</button>
+</form>
+<br>
+<h1>Read All Posts</h1>
+<hr>
+<div class="row mb-2">
+{% for post in posts %}
+<div class="col-md-6">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            {% if post.author %}
+            <strong class="d-inline-block mb-2 text-success">{{ post.author }}</strong>
+            {% else %}
+            <strong class="d-inline-block mb-2 text-success">Unknown</strong>
+            {% endif %}
+            <h3 class="mb-0">{{ post.title }}</h3>
+            <div class="mb-1 text-muted" id="{{ post.id }}">31st December
+            </div>
+            <p class="mb-auto">{{ post.content }}</p>
+            <br>
+            <a class="btn btn-primary" href='/posts/delete/{{post.id}}' role="button">Delete</a>
+            <br>
+            <a class="btn btn-secondary" href='/posts/edit/{{post.id}}' role="button">Edit</a>
+        </div>
+        
+    </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,2 @@
+1) Python Any version - pip install python
+2) Flask (pip install falsk)
